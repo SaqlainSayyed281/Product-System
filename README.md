@@ -1,97 +1,114 @@
-# Backend Development Assignment – ProductHub (React Frontend + Node.js  MongDB Backend )
+Backend Development Assignment – ProductHub
 
-# 👤 Register API
-🔹 Creates a new account in the system.
-🔹 Validates all required fields before registration.
-🔹 Checks if the user already exists and prevents duplicate registrations.
-🔹 By default, every new account is registered as a User.
-🔹 If the user enters the correct Admin Secret Password during registration, the system automatically assigns the Admin role.
-🔹 User passwords are securely hashed using bcrypt before being stored in the database.
-🔹 After successful registration, users are redirected to the Login Page.
-🔹 After login, users are redirected to their respective dashboards based on their role.
------
+React Frontend + Node.js + MongoDB Backend
 
-# 🔐 Login API
-🔹 Authenticates users using their email and password.
-🔹 Validates user credentials and verifies the password using bcrypt.
-🔹 Generates a secure JWT Token upon successful login.
-🔹 Stores the JWT Token in HTTP-Only Cookies for secure authentication.
-🔹 Supports Cookie-Based Authentication for protected routes.
-🔹 After login, users are redirected based on their role:
-- Admin → Admin Dashboard
-- User → User Dashboard
+🚀 Features
+
+- JWT Authentication
+- Cookie-Based Authentication
+- Role-Based Access Control (User/Admin)
+- bcrypt Password Hashing
+- Product CRUD Operations
+- Pagination Support
+- React + Material UI Frontend
+- MongoDB Database
+- Postman Collection Included
+
 ---
 
-# 👤 Profile API
-🔹 Retrieves the authenticated user's profile information.
-🔹 Uses the JWT Token stored in cookies to verify the user.
-🔹 Displays user details such as Name, Email, and Role.
-🔹 Allows users to view their profile directly from the dashboard.
-🔹 Ensures that only authenticated users can access profile information.
+👤 Register API
+
+- Creates a new account in the system.
+- Validates required fields before registration.
+- Prevents duplicate user registrations.
+- By default, registers users with the User role.
+- Assigns the Admin role when the correct Admin Secret Password is provided.
+- Hashes passwords securely using bcrypt.
+- Redirects users to the Login Page after successful registration.
+
 ---
 
-# 📦 Add Product API
-🔹 Allows authenticated Users to add new products to the system.
-🔹 Accessible only to users with the User role; Admins are not permitted to create products.
-🔹 Validates all required fields such as Title, Description, and Price before creating a product.
-🔹 Associates each product with the logged-in user.
-🔹 Ensures only authenticated users can access this functionality through JWT Cookie-Based Authentication.
+🔐 Login API
+
+- Authenticates users using Email and Password.
+- Verifies passwords using bcrypt.
+- Generates a JWT Token upon successful login.
+- Stores JWT Token in HTTP-Only Cookies.
+- Supports secure Cookie-Based Authentication.
+- Redirects users based on their role:
+  - Admin → Admin Dashboard
+  - User → User Dashboard
+
 ---
 
+👤 Profile API
 
-# 📋 Get All Products API
-🔹 Allows authenticated users to view all products created by them.
-🔹 Retrieves products associated with the logged-in user only.
-🔹 Supports Pagination to efficiently manage and display large numbers of products.
-🔹 Ensures only authenticated users can access their product list through JWT Cookie-Based Authentication.
-🔹 Returns product details such as Title, Description, and Price.
-----
+- Retrieves authenticated user profile information.
+- Displays Name, Email, and Role.
+- Protected using JWT Cookie-Based Authentication.
 
-# 🔍 View Single Product API
-🔹 Allows authenticated users to view the complete details of a specific product.
-🔹 Retrieves a single product using its unique Product ID.
-🔹 Displays product information such as Title, Description, and Price.
-🔹 Accessible only to authenticated users through JWT Cookie-Based Authentication.
-🔹 Integrated with the My Products page, allowing users to click on any product and view its complete details in the frontend.
-----
-
-
-# ✏️ Update Own Product API
-🔹 Allows authenticated users to update their own product details such as Title, Description, and Price.
-🔹 Ensures that users can only modify products created by them.
-🔹 Supports Soft Delete functionality by marking a product as deleted instead of permanently removing it from the database.
-🔹 Integrated with the frontend, allowing users to Edit or Delete products directly from the My Products page.
-🔹 Protected through JWT Cookie-Based Authentication to ensure secure access.
 ---
 
+📦 Product APIs
 
-# 🛠️ Admin Get All Products API
-🔹 Allows authenticated Admins to view all products available in the system.
-🔹 Retrieves products created by all users.
-🔹 Supports Pagination for efficient product management and performance optimization.
-🔹 Enables admins to monitor and manage products across the platform.
-🔹 Protected through JWT Cookie-Based Authentication and accessible only to users with the Admin role.
+Add Product API
+
+- Allows authenticated users to create products.
+- Accessible only to Users (not Admins).
+- Validates Title, Description, and Price.
+- Associates products with the logged-in user.
+
+Get All Products API
+
+- Retrieves products created by the logged-in user.
+- Supports Pagination.
+- Returns product Title, Description, and Price.
+
+View Single Product API
+
+- Retrieves product details using Product ID.
+- Displays complete product information.
+- Integrated with the My Products page.
+
+Update Own Product API
+
+- Allows users to update Title, Description, and Price.
+- Ensures only product owners can modify products.
+- Supports Soft Delete functionality.
+- Integrated with the frontend.
+
 ---
 
-# 🔍 Admin View Single Product API
-🔹 Allows authenticated Admins to view the complete details of any product in the system.
-🔹 Retrieves a specific product using its unique Product ID.
-🔹 Displays product information such as Title, Description, Price, and Product Owner.
-🔹 Integrated with the frontend, allowing admins to click on a product and view its complete details.
-🔹 Protected through JWT Cookie-Based Authentication and accessible only to users with the Admin role.
+👑 Admin APIs
+
+Admin Get All Products API
+
+- Retrieves products from all users.
+- Supports Pagination.
+- Accessible only to Admins.
+
+Admin View Single Product API
+
+- Retrieves complete product details.
+- Displays Product Owner information.
+- Accessible only to Admins.
+
+Admin Delete Product API
+
+- Allows Admins to delete any product.
+- Supports Soft Delete functionality.
+- Integrated with the Admin Dashboard.
+
 ---
 
-# 🗑️ Admin Delete Product API
-🔹 Allows authenticated Admins to delete any product in the system.
-🔹 Retrieves the product using its unique Product ID before performing the delete operation.
-🔹 Supports Soft Delete by marking the product as deleted instead of permanently removing it from the database.
-🔹 Integrated with the frontend, allowing admins to delete products directly from the Admin Dashboard.
-🔹 Protected through JWT Cookie-Based Authentication and accessible only to users with the Admin role.
+📮 Postman Collection
 
-----
+A Postman Collection file is included in the repository for testing and verifying all APIs.
+
+---
 
 📌 Conclusion
 
-This project successfully implements a Product Management System with secure JWT Cookie-Based Authentication, role-based access control, and complete product management functionality. Users can register, log in, manage their own products, and view profile information, while admins have access to monitor and manage all products across the system.
+This project implements a secure Product Management System using Node.js, Express.js, MongoDB, JWT Authentication, Cookie-Based Authentication, and Role-Based Access Control.
 
-A basic and clean frontend UI has been developed using React and Material UI to demonstrate the integration of backend APIs with frontend functionality. All APIs have also been tested using Postman, and the Postman Collection file is included in the repository for API testing and verification.
+A basic React + Material UI frontend is included to demonstrate API integration and product management workflows for both Users and Admins.
